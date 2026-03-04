@@ -68,3 +68,30 @@ Run container:
 ```bash
 docker run --rm --env-file .env clash-bot:latest
 ```
+
+## GitHub Actions CI/CD to AWS EC2
+
+Workflow file: `.github/workflows/ci-cd.yml`
+
+- CI runs on every pull request and every push:
+  - installs dependencies
+  - compiles Python files
+  - validates Docker image builds
+- CD runs only on push to `main`:
+  - SSH into your EC2 host
+  - pulls latest `main`
+  - rebuilds Docker image
+  - restarts the bot container
+
+Add these GitHub repository secrets before enabling deploy:
+
+- `EC2_HOST`: Public IP or DNS of your EC2 instance.
+- `EC2_USERNAME`: Linux user (usually `ec2-user` for Amazon Linux).
+- `EC2_SSH_KEY`: Private SSH key content for your EC2 key pair.
+- `EC2_APP_DIR`: Absolute path to your repo on EC2.
+
+Prerequisites on EC2:
+
+- Docker installed and running.
+- Repo cloned at `EC2_APP_DIR`.
+- A valid `.env` file present inside `EC2_APP_DIR`.
