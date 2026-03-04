@@ -26,3 +26,7 @@ Discord bot to send League of Legends Clash updates to Discord.
 ```bash
 python3 main.py
 ```
+
+## Test command
+
+Use `/test` in a channel where the bot has access. It should reply with a confirmation message.
