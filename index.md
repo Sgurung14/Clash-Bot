@@ -2,6 +2,18 @@
 
 A Discord bot that posts upcoming League of Legends Clash schedule updates for EUW1 servers.
 
+## How it works
+
+The bot uses the Riot Games Clash API to retrieve tournament schedule data and then posts those updates to Discord.
+
+Typical behavior:
+- check command for upcoming Clash tournaments with the '/clash' command
+- notifies channels when there is new or relevant schedule information **future update
+
+## Invite / Access
+
+This bot is currently intended for private or limited server use.
+
 ## Privacy Policy
 
 This bot stores only the minimum data needed to operate, such as Discord server settings and cached Clash schedule data.
