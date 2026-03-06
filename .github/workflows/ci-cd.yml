@@ -1,8 +1,10 @@
 name: CI-CD
 
 on:
-  pull_request:
   push:
+    branches:
+      - release/v1.0.0
+  pull_request:
     branches:
       - release/v1.0.0
 
@@ -33,7 +35,7 @@ jobs:
     name: CD to EC2
     runs-on: ubuntu-latest
     needs: ci
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release/v1.0.0'
     steps:
       - name: Deploy over SSH
         uses: appleboy/ssh-action@v1.2.0
@@ -44,8 +46,8 @@ jobs:
           script: |
             set -e
             cd ${{ secrets.EC2_APP_DIR }}
-            git checkout main
-            git pull --ff-only origin main
+            git checkout release/v1.0.0
+            git pull --ff-only origin release/v1.0.0
             docker build -t clash-bot:latest .
             docker rm -f clash-bot || true
             docker run -d \
