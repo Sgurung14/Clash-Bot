@@ -23,7 +23,24 @@ Discord bot to send League of Legends Clash updates to Discord.
 
 1. Copy `.env.example` to `.env`.
 2. Add your bot token to `DISCORD_TOKEN` in `.env`.
-3. Keep `.env` private (it is ignored by git).
+3. Add your Riot key to `RIOT_API_KEY` in `.env`.
+4. Set `RIOT_PLATFORM` (example: `euw1`).
+5. Keep `.env` private (it is ignored by git).
+
+Example:
+
+```env
+DISCORD_TOKEN=your_discord_bot_token
+RIOT_API_KEY=your_riot_production_key
+RIOT_PLATFORM=euw1
+```
+
+## Riot Production Key
+
+- Create/manage your key in Riot Developer Portal: https://developer.riotgames.com/
+- Use your approved Production key value as `RIOT_API_KEY`.
+- Never commit this key to git; store it only in `.env` (local) or platform secrets (Railway/GitHub/EC2).
+- If a key is exposed, rotate/regenerate it immediately in Riot Developer Portal.
 
 ## Run
 
@@ -65,9 +82,9 @@ Workflow file: `.github/workflows/ci-cd.yml`
   - installs dependencies
   - compiles Python files
   - validates Docker image builds
-- CD runs only on push to `main`:
+- CD runs only on push to `release/v1.0.0`:
   - SSH into your EC2 host
-  - pulls latest `main`
+  - pulls latest release branch
   - rebuilds Docker image
   - restarts the bot container
 
