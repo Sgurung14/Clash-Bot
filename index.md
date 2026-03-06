@@ -32,6 +32,11 @@ GitHub: [Sgurung14](https://github.com/Sgurung14)
 
 Email: Safin8312@hotmail.com
 
+## Source Code
+
+GitHub Repository:
+https://github.com/Sgurung14/Clash-Bot
+
 ## Legal
 
 This product is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties.
