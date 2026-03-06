@@ -16,7 +16,7 @@ The bot owner may modify, suspend, or discontinue the bot at any time.
 
 ## Contact
 
-GitHub: [Sgurung15](https://github.com/Sgurung14)
+GitHub: [Sgurung14](https://github.com/Sgurung14)
 
 Email: Safin8312@hotmail.com
 
