@@ -5,6 +5,7 @@ import discord
 import requests
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 RIOT_PLATFORM = os.getenv("RIOT_PLATFORM", "euw1")
