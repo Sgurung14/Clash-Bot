@@ -54,18 +54,6 @@ Use `/hello` in a channel where the bot has access. It should reply with a simpl
 
 Use `/clash` to fetch and post Clash schedule data.
 
-## Deploy on Railway
-
-1. Push this repo to GitHub.
-2. In Railway: `New Project` -> `Deploy from GitHub repo`.
-3. Add environment variables in Railway project settings:
-   - `DISCORD_TOKEN`
-   - `RIOT_API_KEY` (your Riot Production key)
-   - `RIOT_PLATFORM` (example: `euw1`)
-4. In Discord Developer Portal -> your bot -> `Privileged Gateway Intents`, enable `MESSAGE CONTENT INTENT` (required by this bot's current message-command handler).
-5. Deploy. Railway runs the worker using:
-   - `Procfile`: `worker: python main.py`
-
 ## Local install
 
 ```bash
